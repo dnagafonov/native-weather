@@ -1,10 +1,12 @@
 import React from "react";
 import { StyleSheet, View, Text } from "react-native";
+import WeatherContainer from "../weather/weather-container";
 
-export default function WeatherPage({ data, error }) {
+export default function WeatherPage({ data, error, weather }) {
   const text = error ? error : data;
   return (
     <View style={styles.container}>
+      <WeatherContainer weather={weather} />
       <Text style={styles.content}>{text}</Text>
     </View>
   );
@@ -16,7 +18,7 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundImage: "linear-gradient(141deg, #005fad 0%, #2cb5e8 75%)",
     alignItems: "center",
-    justifyContent: "flex-end"
+    justifyContent: "space-evenly"
   },
   content: {
     backgroundImage: "linear-gradient(141deg, rgba(212, 212, 212, 0.2) 0%, rgba(255, 255, 255, 0.3) 75%)",

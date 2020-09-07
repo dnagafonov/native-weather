@@ -4,7 +4,8 @@ import WeatherPage from "./weather-page";
 import { getAddressFromCoordinates, getWeather } from "../../tools/requests";
 
 export default function WeatherPageContainer() {
-  const [state, setstate] = useState({ data: "WeatherPage!", error: "" });
+  const [state, setstate] = useState({ data: "WeatherPage!", error: "", weather: null });
+  console.log(state);
   useEffect(() => {
     Geolocation.getCurrentPosition(
       (position) => {
@@ -13,16 +14,16 @@ export default function WeatherPageContainer() {
           position.coords.longitude
         )
           .then((res) => {
-            setstate({ data: res.Address.Label });
+            setstate(s => ({ ...s, data: res.Address.Label }));
             getWeather(
               res.DisplayPosition.Latitude,
               res.DisplayPosition.Longitude
-            );
+            ).then(res => setstate(s => ({ ...s, weather: res.fact })))
           })
-          .catch((e) => setstate({ error: e }));
+          .catch((e) => setstate(s => ({ ...s,  error: e })));
       },
       (error) => {
-        setstate({ data: `Error: ${error.message}` });
+        setstate(s => ({ ...s, data: `Error: ${error.message}` }));
       },
       {
         enableHighAccuracy: false,
@@ -31,5 +32,5 @@ export default function WeatherPageContainer() {
       }
     );
   }, []);
-  return <WeatherPage data={state.data} error={state.error} />;
+  return <WeatherPage data={state.data} error={state.error} weather={state.weather} />;
 }

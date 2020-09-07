@@ -4,7 +4,7 @@ import { StyleSheet, Text, View } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import Icons from "react-native-vector-icons/MaterialCommunityIcons";
-import WeatherPage from "./components/weather-page/weather-page";
+import WeatherPageContainer from "./components/weather-page/weather-page-container";
 import TablePage from "./components/table-page/table-page";
 
 import "react-native-gesture-handler";
@@ -22,7 +22,7 @@ export default function App() {
       >
         <Tab.Screen
           name="Weather"
-          component={WeatherPage}
+          component={WeatherPageContainer}
           options={{
             tabBarLabel: "Weather",
             tabBarIcon: ({ color, size }) => (

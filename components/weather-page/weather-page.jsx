@@ -1,49 +1,30 @@
-import React, { useEffect, useState } from "react";
-import { StyleSheet, Text, View } from "react-native";
-import Geolocation from "react-native-geolocation-service";
-import Geocoder from "react-native-geocoding";
+import React from "react";
+import { StyleSheet, View, Text } from "react-native";
 
-export default function WeatherPage() {
-  const [state, setstate] = useState({ data: "WeatherPage!" });
-  useEffect(() => {
-    Geolocation.getCurrentPosition(
-      (position) => {
-        Geocoder.init("AIzaSyD0VAsqumZ8Te3wapkonozl7Qjqpy6dfrI");
-        Geocoder.from(position.coords.latitude, position.coords.longitude)
-          .then((json) => {
-            var addressComponent = json.results[0].address_components[0];
-            setstate({ data: addressComponent });
-          })
-          .catch((error) => {
-            console.warn(error);
-            setstate({ data: `Error: ${error.message}` });
-          });
-      },
-      (error) => {
-        // См. таблицы кодов ошибок выше.
-        console.warn(error);
-        setstate({ data: `Error: ${error.message}` });
-      },
-      {
-        enableHighAccuracy: false,
-        timeout: 10000,
-        maximumAge: 100000,
-      }
-    );
-  }, []);
+export default function WeatherPage({ data, error }) {
+  const text = error ? error : data;
   return (
     <View style={styles.container}>
-      <Text>{state.data}</Text>
+      <Text style={styles.content}>{text}</Text>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
-    padding: "10px",
+    padding: "30px",
     flex: 1,
-    backgroundColor: "#fff",
+    backgroundImage: "linear-gradient(141deg, #005fad 0%, #2cb5e8 75%)",
     alignItems: "center",
-    justifyContent: "center",
+    justifyContent: "flex-end"
+  },
+  content: {
+    backgroundImage: "linear-gradient(141deg, rgba(212, 212, 212, 0.2) 0%, rgba(255, 255, 255, 0.3) 75%)",
+    padding: "5px",
+    borderRadius: "5px",
+    maxWidth: "200px",
+    textAlign: "center",
+    fontSize: "1.1rem",
+    fontWeight: "700",
   },
 });

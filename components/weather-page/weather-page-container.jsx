@@ -1,21 +1,27 @@
 import React, { useEffect, useState } from "react";
-import { StyleSheet, Text, View } from "react-native";
 import Geolocation from "react-native-geolocation-service";
-import Geocoder from "react-native-geocoding";
 import WeatherPage from "./weather-page";
-import { getAddressFromCoordinates } from "../../tools/geocoder";
+import { getAddressFromCoordinates, getWeather } from "../../tools/requests";
 
 export default function WeatherPageContainer() {
-  const [state, setstate] = useState({ data: "WeatherPage!" });
+  const [state, setstate] = useState({ data: "WeatherPage!", error: "" });
   useEffect(() => {
     Geolocation.getCurrentPosition(
       (position) => {
-        getAddressFromCoordinates(position.coords.latitude, position.coords.longitude).then(res => {
-          setstate({ data: res.Address.Label })
-        })
+        getAddressFromCoordinates(
+          position.coords.latitude,
+          position.coords.longitude
+        )
+          .then((res) => {
+            setstate({ data: res.Address.Label });
+            getWeather(
+              res.DisplayPosition.Latitude,
+              res.DisplayPosition.Longitude
+            );
+          })
+          .catch((e) => setstate({ error: e }));
       },
       (error) => {
-        console.warn(error);
         setstate({ data: `Error: ${error.message}` });
       },
       {
@@ -25,5 +31,5 @@ export default function WeatherPageContainer() {
       }
     );
   }, []);
-  return <WeatherPage data={state.data}/>
+  return <WeatherPage data={state.data} error={state.error} />;
 }

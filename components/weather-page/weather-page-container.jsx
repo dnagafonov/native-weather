@@ -4,7 +4,15 @@ import WeatherPage from "./weather-page";
 import { getAddressFromCoordinates, getWeather } from "../../tools/requests";
 
 export default function WeatherPageContainer() {
-  const [state, setstate] = useState({ data: "WeatherPage!", error: "", weather: null });
+  const [state, setstate] = useState({
+    data: "",
+    error: "",
+    weather: null,
+    coordinates: { Latitude: null, Longitude: null },
+  });
+  const coordinates = state.coordinates.Latitude
+    ? `Latitude: ${state.coordinates.Latitude}\nLongitude: ${state.coordinates.Longitude}`
+    : null;
   console.log(state);
   useEffect(() => {
     Geolocation.getCurrentPosition(
@@ -14,16 +22,20 @@ export default function WeatherPageContainer() {
           position.coords.longitude
         )
           .then((res) => {
-            setstate(s => ({ ...s, data: res.Address.Label }));
+            setstate((s) => ({
+              ...s,
+              data: res.Address.Label,
+              coordinates: res.DisplayPosition,
+            }));
             getWeather(
               res.DisplayPosition.Latitude,
               res.DisplayPosition.Longitude
-            ).then(res => setstate(s => ({ ...s, weather: res.fact })))
+            ).then((res) => setstate((s) => ({ ...s, weather: res.fact })));
           })
-          .catch((e) => setstate(s => ({ ...s,  error: e })));
+          .catch((e) => setstate((s) => ({ ...s, error: e })));
       },
       (error) => {
-        setstate(s => ({ ...s, data: `Error: ${error.message}` }));
+        setstate((s) => ({ ...s, data: `Error: ${error.message}` }));
       },
       {
         enableHighAccuracy: false,
@@ -32,5 +44,12 @@ export default function WeatherPageContainer() {
       }
     );
   }, []);
-  return <WeatherPage data={state.data} error={state.error} weather={state.weather} />;
+  return (
+    <WeatherPage
+      data={state.data}
+      error={state.error}
+      weather={state.weather}
+      coordinates={coordinates}
+    />
+  );
 }

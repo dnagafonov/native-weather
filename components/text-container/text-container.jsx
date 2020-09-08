@@ -2,20 +2,20 @@ import React from "react";
 import { StyleSheet, Text, Image } from "react-native";
 import spinner from "../../assets/spinner.svg";
 
-export default function TextContainer({ text }) {
-  if (!text)
+export default function TextContainer({ children }) {
+  if (!children)
     return (
       <Text style={styles.content_stub}>
         <Image style={styles.spinner} source={spinner} />
       </Text>
     );
-  return <Text style={styles.content}>{text}</Text>;
+  return <Text style={styles.content}>{children}</Text>;
 }
 
 const styles = StyleSheet.create({
   content: {
-    backgroundImage:
-      "linear-gradient(141deg, rgba(212, 212, 212, 0.2) 0%, rgba(255, 255, 255, 0.3) 75%)",
+    backgroundColor:
+      "rgba(255, 255, 255, 0.2)",
     padding: "5px",
     borderRadius: "5px",
     maxWidth: "200px",
@@ -29,7 +29,7 @@ const styles = StyleSheet.create({
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
-    backgroundColor: "rgba(255, 255, 255, 0.1)",
+    backgroundColor: "rgba(255, 255, 255, 0.2)",
     padding: "5px",
     borderRadius: "5px",
     textAlign: "center",
@@ -37,7 +37,7 @@ const styles = StyleSheet.create({
     fontWeight: "500",
   },
   spinner: {
-    height: "50px",
-    width: "50px",
+    height: "3rem",
+    width: "3rem",
   },
 });

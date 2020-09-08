@@ -21,7 +21,7 @@ const styles = StyleSheet.create({
     justifyContent: "space-between",
     borderRadius: "5px",
     boxSizing: "content-box",
-    backgroundColor: "rgba(255, 255, 255, 0.1)"
+    backgroundColor: "rgba(255, 255, 255, 0.2)"
   },
   tinyLogo: {
     width: 100,

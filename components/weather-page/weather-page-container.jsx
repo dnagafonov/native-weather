@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
 import Geolocation from "react-native-geolocation-service";
 import WeatherPage from "./weather-page";
-import { getAddressFromCoordinates, getWeather } from "../../tools/requests";
+import { getAddressFromCoordinates, getWeather, setHistoryToAS, getHistoryFromAS } from "../../tools/requests";
+import { addToHistory } from "../../redux/actions/actions";
 
 export default function WeatherPageContainer() {
   const [state, setstate] = useState({
@@ -10,11 +11,10 @@ export default function WeatherPageContainer() {
     weather: null,
     coordinates: { Latitude: null, Longitude: null },
   });
-  const coordinates = state.coordinates.Latitude
-    ? `Latitude: ${state.coordinates.Latitude}\nLongitude: ${state.coordinates.Longitude}`
-    : null;
+  const coordinates = state.coordinates.Latitude ? `Latitude: ${state.coordinates.Latitude}\nLongitude: ${state.coordinates.Longitude}` : null;
   console.log(state);
   useEffect(() => {
+    addToHistory("dd");
     Geolocation.getCurrentPosition(
       (position) => {
         getAddressFromCoordinates(

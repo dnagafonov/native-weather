@@ -1,10 +1,10 @@
 import React from "react";
 import { StyleSheet, Text, View } from "react-native";
 
-export default function TablePage() {
+export default function TablePage({ history }) {
   return (
     <View style={styles.container}>
-      <Text>TablePage!</Text>
+      <Text>{JSON.stringify(history)}</Text>
     </View>
   );
 }

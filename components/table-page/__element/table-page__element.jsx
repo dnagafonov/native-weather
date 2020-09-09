@@ -4,7 +4,7 @@ import { StyleSheet, Text, View, TouchableOpacity } from "react-native";
 export default function TablePageElement({ item, onPress }) {
   const coordinates = `${item.location.Latitude}, ${item.location.Longitude}`;
   return (
-    <TouchableOpacity style={styles.container}>
+    <TouchableOpacity style={styles.container} onPress={() => onPress(item.time)}>
       <Text style={styles.coordinates}>{coordinates}</Text>
       <View style={styles.info}>
         <Text style={styles.address}>{item.address}</Text>
@@ -19,7 +19,7 @@ const styles = StyleSheet.create({
     width: "300px",
     height: "100px",
     padding: 5,
-    marginTop: 10,
+    marginBottom: 10,
     display: "flex",
     backgroundColor: "#f0f",
     alignItems: "flex-end",

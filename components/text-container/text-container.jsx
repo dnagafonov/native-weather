@@ -14,8 +14,7 @@ export default function TextContainer({ children }) {
 
 const styles = StyleSheet.create({
   content: {
-    backgroundColor:
-      "rgba(255, 255, 255, 0.2)",
+    backgroundColor: "rgba(255, 255, 255, 0.2)",
     padding: "5px",
     borderRadius: "5px",
     maxWidth: "200px",

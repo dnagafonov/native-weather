@@ -31,7 +31,10 @@ export const setHistoryToAS = async (history) => {
 
 export const getHistoryFromAS = async () => {
   try {
-    return await AsyncStorage.getItem("history");
+    const history = await AsyncStorage.getItem("history");
+    if(history === null) return [];
+    const parsedHistory = history != "" ? JSON.parse(history) : [];
+    return parsedHistory;
   } catch (e) {
     Alert.alert("Error(getHistoryFromAS)", e.message);
   }

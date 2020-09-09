@@ -1,13 +1,8 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { View, StyleSheet } from "react-native";
 import TextContainer from "../text-container/text-container";
-import AsyncStorage from "@react-native-community/async-storage";
 
 export default function TablePageEmpty() {
-  useEffect(() => {
-    //AsyncStorage.setItem("history", JSON.stringify([]))
-    //AsyncStorage.getItem("history").then(res => console.log(res));
-  },[])
   return (
     <View style={styles.container}>
       <TextContainer style={styles.content}>It's empty :(</TextContainer>

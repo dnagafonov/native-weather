@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import TablePage from "./table-page";
 import { connect } from "react-redux";
 import { historySelector } from "../../redux/selectors";
@@ -6,6 +6,7 @@ import TablePageEmpty from "./table-page-empty";
 import { clearHistory } from "../../redux/actions/actions";
 import { View, Button } from "react-native";
 import WeatherPage from "../weather-page/weather-page";
+import PropTypes from "prop-types";
 
 function TablePageContainer({ history, clearHistory }) {
   const [openedId, setOpenedId] = useState(null);
@@ -18,7 +19,11 @@ function TablePageContainer({ history, clearHistory }) {
           coordinates={note.location}
           weather={note.weather}
         />
-        <Button title="Close" color="#005fad" onPress={() => setOpenedId(null)} />
+        <Button
+          title="Close"
+          color="#005fad"
+          onPress={() => setOpenedId(null)}
+        />
       </View>
     );
   }
@@ -31,6 +36,19 @@ function TablePageContainer({ history, clearHistory }) {
     />
   );
 }
+
+TablePage.propTypes = {
+  history: PropTypes.arrayOf({
+    location: PropTypes.exact({
+      Latitude: PropTypes.number.isRequired,
+      Longitude: PropTypes.number.isRequired,
+    }),
+    address: PropTypes.string.isRequired,
+    weather: PropTypes.object.isRequired,
+    time: PropTypes.number.isRequired,
+  }),
+  clearHistory: PropTypes.func.isRequired,
+};
 
 const mapState = (state) => ({
   history: historySelector(state),

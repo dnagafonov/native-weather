@@ -1,6 +1,7 @@
 import React from "react";
 import { StyleSheet, Text, Image } from "react-native";
 import spinner from "../../assets/spinner.svg";
+import PropTypes from "prop-types";
 
 export default function TextContainer({ children }) {
   if (!children)
@@ -10,6 +11,10 @@ export default function TextContainer({ children }) {
       </Text>
     );
   return <Text style={styles.content}>{children}</Text>;
+}
+
+TextContainer.propTypes = {
+  children: PropTypes.node
 }
 
 const styles = StyleSheet.create({

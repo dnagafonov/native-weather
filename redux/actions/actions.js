@@ -5,6 +5,7 @@ import {
   setHistoryToAS,
   getAddressFromCoordinates,
   getWeather,
+  clearHistoryInAS,
 } from "../../tools/requests";
 import { Alert } from "react-native";
 
@@ -25,6 +26,11 @@ export const addToHistory = (request) => async (dispatch) => {
   } catch (e) {
     Alert.alert("Error(addToHistory)", e.message);
   }
+};
+
+export const clearHistory = () => {
+  clearHistoryInAS()
+  return { type: types.CLEAR_HISTORY };
 };
 
 export const setHistory = (history) => ({
@@ -69,7 +75,7 @@ export const getForecast = () => (dispatch) => {
             location: forecast.DisplayPosition,
             address: forecast.Address.Label,
             weather: weather.fact,
-            time: Date.now()
+            time: Date.now(),
           })
         );
       } catch (e) {

@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { StyleSheet } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
@@ -9,14 +9,10 @@ import { Provider } from "react-redux";
 import { store } from "./redux/store";
 
 import "react-native-gesture-handler";
-import AsyncStorage from "@react-native-community/async-storage";
 
 const Tab = createBottomTabNavigator();
 
 export default function App() {
-  useEffect(() => {
-    //AsyncStorage.removeItem('history')
-  }, [])
   return (
     <Provider store={store}>
       <NavigationContainer>

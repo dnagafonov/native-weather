@@ -3,18 +3,15 @@ import TablePage from "./table-page";
 import { connect } from "react-redux";
 import { historySelector } from "../../redux/selectors";
 import TablePageEmpty from "./table-page-empty";
-import { updateHistory } from "../../redux/actions/actions";
+import { clearHistory } from "../../redux/actions/actions";
 
-function TablePageContainer({ history, updateHistory }) {
-  useEffect(() => {
-    updateHistory()
-  }, [])
+function TablePageContainer({ history, clearHistory }) {
   if (!history.length) return <TablePageEmpty />;
-  return <TablePage history={history} />;
+  return <TablePage history={history} clearHistory={clearHistory} />;
 }
 
 const mapState = (state) => ({
   history: historySelector(state),
 });
 
-export default connect(mapState, { updateHistory })(TablePageContainer);
+export default connect(mapState, { clearHistory })(TablePageContainer);

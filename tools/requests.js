@@ -39,3 +39,11 @@ export const getHistoryFromAS = async () => {
     Alert.alert("Error(getHistoryFromAS)", e.message);
   }
 };
+
+export const clearHistoryInAS = async () => {
+  try {
+    await AsyncStorage.setItem("history", []);
+  } catch (e) {
+    Alert.alert("Error(clearHistoryInAS)", e.message);
+  }
+};

@@ -4,5 +4,6 @@ export const types = {
     SET_LOCATION: "SET_LOCATION",
     SET_WEATHER: "SET_WEATHER",
     SET_HISTORY: "SET_HISTORY",
-    ERROR: "ERROR"
+    ERROR: "ERROR",
+    CLEAR_HISTORY: "CLEAR_HISTORY"
 }

@@ -15,6 +15,9 @@ export const forecast = produce((draft, action) => {
     case types.SET_HISTORY:
       draft.history = action.history;
       return draft;
+    case types.CLEAR_HISTORY:
+      draft.history = [];
+      return draft;
     case types.ADD_TO_HISTORY:
       draft.location = action.payload;
       return draft;

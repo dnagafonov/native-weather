@@ -1,21 +1,24 @@
 {
   "files": {
-    "app.js": "/dnagafonov/native-weather/static/js/app.4719bcd2.chunk.js",
-    "app.js.map": "/dnagafonov/native-weather/static/js/app.4719bcd2.chunk.js.map",
+    "app.js": "/dnagafonov/native-weather/static/js/app.7170b11e.chunk.js",
+    "app.js.map": "/dnagafonov/native-weather/static/js/app.7170b11e.chunk.js.map",
     "runtime~app.js": "/dnagafonov/native-weather/static/js/runtime~app.9baf0008.js",
     "runtime~app.js.map": "/dnagafonov/native-weather/static/js/runtime~app.9baf0008.js.map",
-    "static/js/2.16215839.chunk.js": "/dnagafonov/native-weather/static/js/2.16215839.chunk.js",
-    "static/js/2.16215839.chunk.js.map": "/dnagafonov/native-weather/static/js/2.16215839.chunk.js.map",
+    "static/js/2.dc21b155.chunk.js": "/dnagafonov/native-weather/static/js/2.dc21b155.chunk.js",
+    "static/js/2.dc21b155.chunk.js.map": "/dnagafonov/native-weather/static/js/2.dc21b155.chunk.js.map",
     "fonts/MaterialCommunityIcons.ttf": "/dnagafonov/native-weather/./fonts/MaterialCommunityIcons.ttf",
+    "favicon-16.png": "/dnagafonov/native-weather/favicon-16.png",
+    "favicon-32.png": "/dnagafonov/native-weather/favicon-32.png",
+    "favicon.ico": "/dnagafonov/native-weather/favicon.ico",
     "index.html": "/dnagafonov/native-weather/index.html",
     "manifest.json": "/dnagafonov/native-weather/manifest.json",
     "serve.json": "/dnagafonov/native-weather/serve.json",
-    "static/js/2.16215839.chunk.js.LICENSE.txt": "/dnagafonov/native-weather/static/js/2.16215839.chunk.js.LICENSE.txt",
+    "static/js/2.dc21b155.chunk.js.LICENSE.txt": "/dnagafonov/native-weather/static/js/2.dc21b155.chunk.js.LICENSE.txt",
     "static/media/spinner.svg": "/dnagafonov/native-weather/static/media/spinner.4678ba0f.svg"
   },
   "entrypoints": [
     "static/js/runtime~app.9baf0008.js",
-    "static/js/2.16215839.chunk.js",
-    "static/js/app.4719bcd2.chunk.js"
+    "static/js/2.dc21b155.chunk.js",
+    "static/js/app.7170b11e.chunk.js"
   ]
 }

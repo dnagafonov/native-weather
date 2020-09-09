@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 importScripts(
-  "/dnagafonov/native-weather/precache-manifest.dd9f67007d43ebbfb6c0fb6ed8dabbf3.js"
+  "/dnagafonov/native-weather/precache-manifest.84b82d5a020b0a52faf13b0d67fd0895.js"
 );
 
 workbox.skipWaiting();
@@ -29,9 +29,9 @@ self.__precacheManifest = [].concat(self.__precacheManifest || []);
 workbox.precaching.suppressWarnings();
 workbox.precaching.precacheAndRoute(self.__precacheManifest, {});
 
-workbox.routing.registerNavigationRoute("\\dnagafonov\\native-weather\\index.html", {
+workbox.routing.registerNavigationRoute("/dnagafonov/native-weather/index.html", {
   
-  blacklist: [/^\/_/,/\/[^\/]+\.[^\/]+$/],
+  blacklist: [/^\/_/,/\/[^/]+\.[^/]+$/],
 });
 
 workbox.routing.registerRoute(/^https?.*/, workbox.strategies.networkFirst({ "cacheName":"offlineCache", plugins: [new workbox.expiration.Plugin({"maxEntries":200,"purgeOnQuotaError":false})] }), 'GET');

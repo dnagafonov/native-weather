@@ -25,6 +25,7 @@ export const addToHistory = (request) => async (dispatch) => {
     dispatch(updateHistory());
   } catch (e) {
     Alert.alert("Error(addToHistory)", e.message);
+    console.error("Error(addToHistory)", e.message);
   }
 };
 
@@ -80,10 +81,13 @@ export const getForecast = () => (dispatch) => {
         );
       } catch (e) {
         Alert.alert("Error :(", "check your internet connection");
-        console.warn(e.message);
+        console.error("Error(addToHistory)", "check your internet connection");
       }
     },
-    (e) => Alert.alert("Error(getForecast)", e.message),
+    (e) => {
+      Alert.alert("Error(getForecast)", e.message)
+      console.error("Error(addToHistory)", e.message);
+    },
     {
       enableHighAccuracy: false,
       timeout: 10000,

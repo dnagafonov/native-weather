@@ -2,6 +2,7 @@ import React from "react";
 import { StyleSheet, SafeAreaView, Button } from "react-native";
 import { FlatList } from "react-native-gesture-handler";
 import TablePageElement from "./__element/table-page__element";
+import PropTypes from "prop-types";
 
 export default function TablePage({ history, clearHistory, onPress }) {
   const item = ({ item }) => <TablePageElement onPress={onPress} item={item} />;
@@ -18,6 +19,20 @@ export default function TablePage({ history, clearHistory, onPress }) {
   );
 }
 
+TablePage.propTypes = {
+  history: PropTypes.arrayOf({
+    location: PropTypes.exact({
+      Latitude: PropTypes.number.isRequired,
+      Longitude: PropTypes.number.isRequired,
+    }),
+    address: PropTypes.string.isRequired,
+    weather: PropTypes.object.isRequired,
+    time: PropTypes.number.isRequired,
+  }),
+  clearHistory: PropTypes.func.isRequired,
+  onPress: PropTypes.func.isRequired
+};
+
 const styles = StyleSheet.create({
   container: {
     paddingTop: 10,
@@ -26,6 +41,6 @@ const styles = StyleSheet.create({
   },
   list: {
     marginBottom: 10,
-    alignSelf: "center"
-  }
+    alignSelf: "center",
+  },
 });

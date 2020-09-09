@@ -1,55 +1,24 @@
-import React, { useEffect, useState } from "react";
-import Geolocation from "react-native-geolocation-service";
+import React, { useEffect } from "react";
 import WeatherPage from "./weather-page";
-import { getAddressFromCoordinates, getWeather, setHistoryToAS, getHistoryFromAS } from "../../tools/requests";
-import { addToHistory } from "../../redux/actions/actions";
+import { getForecast } from "../../redux/actions/actions";
+import { connect } from "react-redux";
+import { locationSelector } from "../../redux/selectors";
 
-export default function WeatherPageContainer() {
-  const [state, setstate] = useState({
-    data: "",
-    error: "",
-    weather: null,
-    coordinates: { Latitude: null, Longitude: null },
-  });
-  const coordinates = state.coordinates.Latitude ? `Latitude: ${state.coordinates.Latitude}\nLongitude: ${state.coordinates.Longitude}` : null;
-  console.log(state);
+function WeatherPageContainer({ location, getForecast }) {
   useEffect(() => {
-    addToHistory("dd");
-    Geolocation.getCurrentPosition(
-      (position) => {
-        getAddressFromCoordinates(
-          position.coords.latitude,
-          position.coords.longitude
-        )
-          .then((res) => {
-            setstate((s) => ({
-              ...s,
-              data: res.Address.Label,
-              coordinates: res.DisplayPosition,
-            }));
-            getWeather(
-              res.DisplayPosition.Latitude,
-              res.DisplayPosition.Longitude
-            ).then((res) => setstate((s) => ({ ...s, weather: res.fact })));
-          })
-          .catch((e) => setstate((s) => ({ ...s, error: e })));
-      },
-      (error) => {
-        setstate((s) => ({ ...s, data: `Error: ${error.message}` }));
-      },
-      {
-        enableHighAccuracy: false,
-        timeout: 10000,
-        maximumAge: 100000,
-      }
-    );
+    getForecast();
   }, []);
   return (
     <WeatherPage
-      data={state.data}
-      error={state.error}
-      weather={state.weather}
-      coordinates={coordinates}
+      address={location.address}
+      weather={location.weather}
+      coordinates={location.coordinates}
     />
   );
-}
+};
+
+const mapState = state => ({
+  location: locationSelector(state)
+});
+
+export default connect(mapState, { getForecast })(WeatherPageContainer);

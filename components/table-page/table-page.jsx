@@ -1,11 +1,22 @@
 import React from "react";
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, SafeAreaView, Button } from "react-native";
+import { FlatList } from "react-native-gesture-handler";
+import TablePageElement from "./__element/table-page__element";
+import AsyncStorage from "@react-native-community/async-storage";
 
 export default function TablePage({ history }) {
+  const onPress = async () => {
+    await AsyncStorage.setItem("history", [])
+  }
   return (
-    <View style={styles.container}>
-      <Text>{JSON.stringify(history)}</Text>
-    </View>
+    <SafeAreaView style={styles.container}>
+      <FlatList
+        data={history}
+        renderItem={TablePageElement}
+        keyExtractor={(e) => e.time}
+      />
+      <Button onPress={onPress} title="Clean" />
+    </SafeAreaView>
   );
 }
 

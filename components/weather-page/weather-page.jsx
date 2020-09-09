@@ -3,13 +3,12 @@ import { StyleSheet, View } from "react-native";
 import WeatherContainer from "../weather/weather-container";
 import TextContainer from "../text-container/text-container";
 
-export default function WeatherPage({ data, error, weather, coordinates }) {
-  const text = error ? error : data;
+export default function WeatherPage({ address, weather, coordinates }) {
   return (
     <View style={styles.container}>
       <WeatherContainer weather={weather} />
-      <TextContainer>{text}</TextContainer>
-      <TextContainer>{coordinates}</TextContainer>
+      <TextContainer>{address}</TextContainer>
+      <TextContainer>{coordinates ? coordinates.Latitude + ", " + coordinates.Longitude : null}</TextContainer>
     </View>
   );
 }

@@ -19,7 +19,7 @@ export default function TablePage({ history, clearHistory }) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#fff",
+    backgroundImage: "linear-gradient(141deg, #a1c4fd 0%, #c2e9fb 75%)",
     alignItems: "center",
     justifyContent: "center",
   },

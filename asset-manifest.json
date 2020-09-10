@@ -1,0 +1,24 @@
+{
+  "files": {
+    "app.js": "/native-weather/static/js/app.7c327379.chunk.js",
+    "app.js.map": "/native-weather/static/js/app.7c327379.chunk.js.map",
+    "runtime~app.js": "/native-weather/static/js/runtime~app.6d34c753.js",
+    "runtime~app.js.map": "/native-weather/static/js/runtime~app.6d34c753.js.map",
+    "static/js/2.dc21b155.chunk.js": "/native-weather/static/js/2.dc21b155.chunk.js",
+    "static/js/2.dc21b155.chunk.js.map": "/native-weather/static/js/2.dc21b155.chunk.js.map",
+    "fonts/MaterialCommunityIcons.ttf": "/native-weather/./fonts/MaterialCommunityIcons.ttf",
+    "favicon-16.png": "/native-weather/favicon-16.png",
+    "favicon-32.png": "/native-weather/favicon-32.png",
+    "favicon.ico": "/native-weather/favicon.ico",
+    "index.html": "/native-weather/index.html",
+    "manifest.json": "/native-weather/manifest.json",
+    "serve.json": "/native-weather/serve.json",
+    "static/js/2.dc21b155.chunk.js.LICENSE.txt": "/native-weather/static/js/2.dc21b155.chunk.js.LICENSE.txt",
+    "static/media/spinner.svg": "/native-weather/static/media/spinner.4678ba0f.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime~app.6d34c753.js",
+    "static/js/2.dc21b155.chunk.js",
+    "static/js/app.7c327379.chunk.js"
+  ]
+}

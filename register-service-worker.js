@@ -1,0 +1,1 @@
+"serviceWorker"in navigator&&window.addEventListener("load",(function(){navigator.serviceWorker.register("/native-weather/expo-service-worker.js",{scope:"/native-weather/"}).then((function(e){})).catch((function(e){console.info("Failed to register service-worker",e)}))}));

@@ -18,7 +18,7 @@ export const getWeather = async (latitude, longitude) => {
   const url = `forecast?lat=${latitude}&lon=${longitude}&limit=1`;
   return await weatherAPI
     .get(url)
-    .then((res) => res.data)
+    .then(res => res.data)
     .catch((e) => {
       Alert.alert("Error(getWeather)", e.message);
       console.error("Error(getWeather)", e.message);

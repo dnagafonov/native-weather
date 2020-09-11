@@ -1,21 +1,24 @@
 {
   "files": {
-    "app.js": "/dnagafonov/native-weather/static/js/app.4719bcd2.chunk.js",
-    "app.js.map": "/dnagafonov/native-weather/static/js/app.4719bcd2.chunk.js.map",
-    "runtime~app.js": "/dnagafonov/native-weather/static/js/runtime~app.9baf0008.js",
-    "runtime~app.js.map": "/dnagafonov/native-weather/static/js/runtime~app.9baf0008.js.map",
-    "static/js/2.16215839.chunk.js": "/dnagafonov/native-weather/static/js/2.16215839.chunk.js",
-    "static/js/2.16215839.chunk.js.map": "/dnagafonov/native-weather/static/js/2.16215839.chunk.js.map",
-    "fonts/MaterialCommunityIcons.ttf": "/dnagafonov/native-weather/./fonts/MaterialCommunityIcons.ttf",
-    "index.html": "/dnagafonov/native-weather/index.html",
-    "manifest.json": "/dnagafonov/native-weather/manifest.json",
-    "serve.json": "/dnagafonov/native-weather/serve.json",
-    "static/js/2.16215839.chunk.js.LICENSE.txt": "/dnagafonov/native-weather/static/js/2.16215839.chunk.js.LICENSE.txt",
-    "static/media/spinner.svg": "/dnagafonov/native-weather/static/media/spinner.4678ba0f.svg"
+    "app.js": "/static/js/app.fec15551.chunk.js",
+    "app.js.map": "/static/js/app.fec15551.chunk.js.map",
+    "runtime~app.js": "/static/js/runtime~app.2e9f1821.js",
+    "runtime~app.js.map": "/static/js/runtime~app.2e9f1821.js.map",
+    "static/js/2.b360d056.chunk.js": "/static/js/2.b360d056.chunk.js",
+    "static/js/2.b360d056.chunk.js.map": "/static/js/2.b360d056.chunk.js.map",
+    "fonts/MaterialCommunityIcons.ttf": "/./fonts/MaterialCommunityIcons.ttf",
+    "favicon-16.png": "/favicon-16.png",
+    "favicon-32.png": "/favicon-32.png",
+    "favicon.ico": "/favicon.ico",
+    "index.html": "/index.html",
+    "manifest.json": "/manifest.json",
+    "serve.json": "/serve.json",
+    "static/js/2.b360d056.chunk.js.LICENSE.txt": "/static/js/2.b360d056.chunk.js.LICENSE.txt",
+    "static/media/spinner.svg": "/static/media/spinner.4678ba0f.svg"
   },
   "entrypoints": [
-    "static/js/runtime~app.9baf0008.js",
-    "static/js/2.16215839.chunk.js",
-    "static/js/app.4719bcd2.chunk.js"
+    "static/js/runtime~app.2e9f1821.js",
+    "static/js/2.b360d056.chunk.js",
+    "static/js/app.fec15551.chunk.js"
   ]
 }

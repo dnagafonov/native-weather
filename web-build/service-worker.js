@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 importScripts(
-  "/dnagafonov/native-weather/precache-manifest.84b82d5a020b0a52faf13b0d67fd0895.js"
+  "/native-weather/precache-manifest.3b90e45ef2478bf64b9bf96a96cb26a1.js"
 );
 
 workbox.skipWaiting();
@@ -29,7 +29,7 @@ self.__precacheManifest = [].concat(self.__precacheManifest || []);
 workbox.precaching.suppressWarnings();
 workbox.precaching.precacheAndRoute(self.__precacheManifest, {});
 
-workbox.routing.registerNavigationRoute("/dnagafonov/native-weather/index.html", {
+workbox.routing.registerNavigationRoute("/native-weather/index.html", {
   
   blacklist: [/^\/_/,/\/[^/]+\.[^/]+$/],
 });

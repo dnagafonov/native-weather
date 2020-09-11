@@ -24,7 +24,7 @@ WeatherPage.propTypes = {
     Longitude: PropTypes.number.isRequired,
   }),
   address: PropTypes.string.isRequired,
-  weather: PropTypes.object.isRequired,
+  weather: PropTypes.object,
 };
 
 const styles = StyleSheet.create({
